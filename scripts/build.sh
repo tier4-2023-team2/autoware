@@ -8,11 +8,11 @@ source ./install/setup.bash
 MAP_DIR=$(pwd)/assets
 
 # copy calib file 
-cp ./src/sensor_kit/logiee-s-tc_sensor_kit_launch/logiee-s-tc_sensor_kit_description/config/sensors_calibration.yaml \
-   ./src/param/autoware_individual_params/individual_params/config/default/logiee-s-tc_sensor_kit/sensors_calibration.yaml
+# cp ./src/sensor_kit/logiee-s-tc_sensor_kit_launch/logiee-s-tc_sensor_kit_description/config/sensors_calibration.yaml \
+#    ./src/param/autoware_individual_params/individual_params/config/default/logiee-s-tc_sensor_kit/sensors_calibration.yaml
 
-cp ./src/sensor_kit/logiee-s-tc_sensor_kit_launch/logiee-s-tc_sensor_kit_description/config/sensor_kit_calibration.yaml \
-   ./src/param/autoware_individual_params/individual_params/config/default/logiee-s-tc_sensor_kit/sensor_kit_calibration.yaml
+# cp ./src/sensor_kit/logiee-s-tc_sensor_kit_launch/logiee-s-tc_sensor_kit_description/config/sensor_kit_calibration.yaml \
+#    ./src/param/autoware_individual_params/individual_params/config/default/logiee-s-tc_sensor_kit/sensor_kit_calibration.yaml
 
 colcon build --packages-select \
  logiee-s-tc_sensor_kit_launch \
