@@ -10,6 +10,11 @@ source ./install/setup.bash
 #MAP_DIR=$(pwd)/assets3
 #MAP_DIR=$(pwd)/assets4
 
+if [ $# -gt 0 ]; then
+    MAP_DIR=$(pwd)/assets$1
+fi
+echo "Using map directory is '$MAP_DIR'"
+
 ros2 launch autoware_launch autoware.launch.xml \
  vehicle_model:=logiee-s-tc \
  sensor_model:=logiee-s-tc_sensor_kit \
