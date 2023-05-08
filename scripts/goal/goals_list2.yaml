@@ -1,10 +1,12 @@
+# - position_x: 1.5
 - position_x: -1.7742894887924194
-  position_y: 7.8737287521362305
+  # position_y: 7.8737287521362305
+  position_y: 8.1737287521362305
   position_z: 0
   orientation_x: 0
   orientation_y: 0
   orientation_z: 0.99993897202371074
-  orientation_w: 0.011047725022132899
+  orientation_w: 0.0
 - position_x: 4.7605462074279785
   position_y: 0.10811471939086914
   position_z: 0
