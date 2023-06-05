@@ -5,13 +5,23 @@ cd $SCRIPT_DIR
 cd ../
 WORK_SCAPE=$(pwd)
 source ./install/setup.bash
-MAP_DIR=$(pwd)/assets
+MAP_DIR=$(pwd)/assets6
 # GOAL_LIST_FILE_PATH=$(pwd)/scripts/goal
-
-if [ $# -gt 0 ]; then
-    MAP_DIR=$(pwd)/assets$1
-fi
 echo "Using map directory is '$MAP_DIR'"
+
+USE_DEFAULT_POSE_ESTIMATOR=true
+RVIZ=true
+while getopts 'd:nr' opt; do
+    case "${opt}" in
+        d) MAP_DIR=$(pwd)/assets$OPTARG;;
+        n) USE_DEFAULT_POSE_ESTIMATOR=false;; #use nerf
+        r) RVIZ=false;;
+    esac
+done
+
+echo map_dir = $MAP_DIR
+echo $USE_DEFAULT_POSE_ESTIMATOR
+echo $RVIZ
 
 ros2 launch autoware_launch autoware.launch.xml \
  vehicle_model:=logiee-s-tc \
@@ -23,6 +33,12 @@ ros2 launch autoware_launch autoware.launch.xml \
  use_dynamic_map_loading:=false \
  use_object_filter:=true \
  use_surround_obstacle_check:=false \
- map_path:=${MAP_DIR} 
+ use_empty_dynamic_object_publisher:=false \
+ use_gpu:=true \
+ image_number:=0 \
+ use_empty_dynamic_object_publisher:=true \
+ rviz:=${RVIZ} \
+ use_default_pose_estimator:=${USE_DEFAULT_POSE_ESTIMATOR} \
+ map_path:=${MAP_DIR}
 
 cd $HOME_DIR

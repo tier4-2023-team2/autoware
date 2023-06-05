@@ -1,0 +1,1 @@
+ros2 topic echo /vehicle/status/velocity_status
